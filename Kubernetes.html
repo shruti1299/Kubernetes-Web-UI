@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 100px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 50px;
+  background-color: black;
+  color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 5px;
+  
+  margin: 20px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 10px 10px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px 20px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 5px solid #4CAF50;
+}
+
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.button2 {
+  background-color: white; 
+  color: black; 
+  border: 5px solid #008CBA;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+.button3 {
+  background-color: white; 
+  color: black; 
+  border: 5px solid #f44336;
+}
+
+.button3:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+.button4 {
+  background-color: white;
+  color: black;
+  border: 5px solid #e7e7e7;
+}
+
+.button4:hover {background-color: #e7e7e7;}
+
+.button5 {
+  background-color: white;
+  color: black;
+  border: 5px solid #555555;
+}
+
+.button5:hover {
+  background-color: #555555;
+  color: white;
+}
+
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+}
+
+/* Style tab links */
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 20%;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+
+#Home {background-color: red;}
+#News {background-color: green;}
+#Contact {background-color: blue;}
+#About {background-color: orange;}
+#hello {background-color: orange;}
+
+div#d1 {
+  color: white;
+  font-family: verdana;
+  font-size: 70%;
+  background-color: #555;
+  font-weight: bolder;
+  text-shadow: teal;
+  position: fixed;
+  top: 300px;
+  left: 50px;
+  height: 300px;
+  border: grey solid 2px;
+  width: 60%;
+}
+div#d2 {
+  color: white;
+  font-family: verdana;
+  font-size: 70%;
+  background-color: #555;
+  font-weight: bolder;
+  text-shadow: teal;
+  position: fixed;
+  top: 300px;
+  left: 50px;
+  height: 300px;
+  border: grey solid 2px;
+  width: 60%;
+}
+
+div#d3 {
+  color: white;
+  font-family: verdana;
+  font-size: 100%;
+  background-color: #555;
+  font-weight: bolder;
+  text-shadow: teal;
+  position: fixed;
+  top: 300px;
+  left: 50px;
+  height: 300px;
+  border: grey solid 2px;
+  width: 60%;
+}
+
+div#d4 {
+  color: white;
+  font-family: verdana;
+  font-size: 100%;
+  background-color: #555;
+  font-weight: bolder;
+  text-shadow: teal;
+  position: fixed;
+  top: 300px;
+  left: 50px;
+  height: 300px;
+  border: grey solid 2px;
+  width: 60%;
+}
+
+div#d5 {
+  color: white;
+  font-family: verdana;
+  font-size: 100%;
+  background-color: #555;
+  font-weight: bolder;
+  text-shadow: teal;
+  position: fixed;
+  top: 300px;
+  left: 50px;
+  height: 300px;
+  border: grey solid 2px;
+  width: 60%;
+}
+</style>
+</head>
+<body>
+
+<button class="tablink" onclick="openPage('Home', this, 'red')">Pods</button>
+<button class="tablink" onclick="openPage('News', this, 'green')" id="defaultOpen">Deployments</button>
+<button class="tablink" onclick="openPage('Contact', this, 'blue')">Services</button>
+<button class="tablink" onclick="openPage('About', this, 'orange')">ReplicaSets</button>
+<button class="tablink" onclick="openPage('hello', this, 'orange')">Namespaces</button>
+
+
+
+
+<div id="Home" class="tabcontent">
+  <button class="button button1"  onclick="openForm()" >Create Pod</button>
+  <button class="button button2" onclick="openForm1()">Delete Pod</button>
+<button class="button button3" onclick="listAllPod()">List Pods</button>
+<button class="button button4" onclick="openForm2()" >Describe Pod</button>
+<button class="button button5" onclick="descAllPod()">Describe All Pods</button>
+
+<pre>
+    <div id="d1">
+       
+      
+    </div>
+</pre>
+  
+</div>
+<!-- form for creating the pod -->
+<div class="form-popup" id="myForm">
+  <form action="Javascript:createPod()" class="form-container">
+    
+    <label><b>Container Name</b></label>
+    <input type="text"  id="in1"   required>
+
+    <label><b>Image Name</b></label>
+    <input type="text"  id="in2"  required>
+
+    <button type="submit" class="btn" >Create Pod</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+<!-- form for deleting the pod -->
+<div class="form-popup" id="myForm1">
+    <form action="Javascript:deletePod()" class="form-container">
+      
+      <label><b>Container Name</b></label>
+      <input type="text"  id="in3"   required>
+  
+  
+      <button type="submit" class="btn" >Delete Pod</button>
+      <button type="button" class="btn cancel" onclick="closeForm1()">Close</button>
+    </form>
+  </div>
+
+  <!-- form for describing the pod -->
+  <div class="form-popup" id="myForm2">
+    <form action="Javascript:descPod()" class="form-container">
+      
+      <label><b>Pod Name</b></label>
+      <input type="text"  id="in4"   required>
+  
+  
+      <button type="submit" class="btn" >Describe Pod</button>
+      <button type="button" class="btn cancel" onclick="closeForm2()">Close</button>
+    </form>
+  </div>
+
+  <!--deployment tab-->
+  <div id="News" class="tabcontent">
+    <button class="button button1"  onclick="openForm3()" >Create Deployment</button>
+    <button class="button button2" onclick="openForm4()">Delete Deployment</button>
+  <button class="button button3" onclick="listAllDepl()">List Deployment</button>
+  <button class="button button4" onclick="openForm5()" >Describe Deployment</button>
+  <button class="button button5" onclick="descAllDepl()">Describe All Deployment</button>
+  
+  <pre>
+      <div id="d2">
+         output
+        
+      </div>
+  </pre>
+</div>
+
+  <!-- form for creating the deployment -->
+<div class="form-popup" id="myForm3">
+    <form action="Javascript:createDepl()" class="form-container">
+      
+      <label><b>Deployment Name</b></label>
+      <input type="text"  id="in5"   required>
+  
+      <label><b>Image Name</b></label>
+      <input type="text"  id="in6"  required>
+  
+      <button type="submit" class="btn" >Create Deployment</button>
+      <button type="button" class="btn cancel" onclick="closeForm3()">Close</button>
+    </form>
+  </div>
+
+  <!-- form for deleting the deployment -->
+<div class="form-popup" id="myForm4">
+    <form action="Javascript:deleteDepl()" class="form-container">
+      
+      <label><b>Container Name</b></label>
+      <input type="text"  id="in7"   required>
+  
+  
+      <button type="submit" class="btn" >Delete Deployment</button>
+      <button type="button" class="btn cancel" onclick="closeForm4()">Close</button>
+    </form>
+  </div>
+
+  <!-- form for describing the deployment -->
+  <div class="form-popup" id="myForm5">
+    <form action="Javascript:descDepl()" class="form-container">
+      
+      <label><b>Pod Name</b></label>
+      <input type="text"  id="in8"   required>
+  
+  
+      <button type="submit" class="btn" >Describe Deployment</button>
+      <button type="button" class="btn cancel" onclick="closeForm5()">Close</button>
+    </form>
+  </div>
+
+  <!-- End the Deployment tab-->
+
+
+  
+  
+  
+
+
+<!-- Service Tab-->
+<div id="Contact" class="tabcontent">
+    
+        <button class="button button1"  onclick="openForm6()" >Expose Service</button>
+        <button class="button button2" onclick="openForm7()">Delete Service</button>
+      <button class="button button3" onclick="listAllSvc()">List Service</button>
+      <button class="button button4" onclick="openForm8()" >Describe service</button>
+      <button class="button button5" onclick="descAllSvc()">Describe All Services</button>
+      
+      <pre>
+          <div id="d3">
+             services
+            
+          </div>
+      </pre>
+        
+      </div>
+</div>
+  <!-- form for Expose the svc -->
+  <div class="form-popup" id="myForm6">
+    <form action="Javascript:createSvc()" class="form-container">
+      
+      <label><b>Deployment Name</b></label>
+      <input type="text"  id="s1"   required>
+  
+      <label><b>Port No</b></label>
+      <input type="text"  id="s2"  required>
+  
+      <button type="submit" class="btn" >Expose</button>
+      <button type="button" class="btn cancel" onclick="closeForm6()">Close</button>
+    </form>
+  </div>
+
+  <!-- form for deleting the deployment -->
+<div class="form-popup" id="myForm7">
+    <form action="Javascript:deleteSvc()" class="form-container">
+      
+      <label><b>Service Name</b></label>
+      <input type="text"  id="s3"   required>
+  
+  
+      <button type="submit" class="btn" >Delete</button>
+      <button type="button" class="btn cancel" onclick="closeForm7()">Close</button>
+    </form>
+  </div>
+
+  <!-- form for describing the deployment -->
+  <div class="form-popup" id="myForm8">
+    <form action="Javascript:descSvc()" class="form-container">
+      
+      <label><b>Service Name</b></label>
+      <input type="text"  id="s4"   required>
+  
+  
+      <button type="submit" class="btn" >Describe</button>
+      <button type="button" class="btn cancel" onclick="closeForm8()">Close</button>
+    </form>
+  </div>
+
+<!-----End Service Tab -->
+
+
+
+<!-----Start of ReplicaSets-----> 
+<div id="About" class="tabcontent">
+    <button class="button button1"  onclick="openForm9()" >ScaleUp</button>
+    <button class="button button2" onclick="openForm10()">ScaleDown</button>
+  <button class="button button3"  onclick="listAllRS()" >List Replica Set</button>
+  <button class="button button4" onclick="descAllRS()">Describe All Replica Sets</button>
+  
+  <pre>
+      <div id="d4">
+         Replicasets
+        
+      </div>
+  </pre>
+</div>
+</div>
+<!-- form for scaleup -->
+<div class="form-popup" id="myForm9">
+    <form action="Javascript:scaleupRS()" class="form-container">
+      
+      <label><b>Deployment Name</b></label>
+      <input type="text"  id="rs1"   required>
+  
+      <label><b>No</b></label>
+      <input type="text"  id="rs2"  required>
+  
+      <button type="submit" class="btn" >Scale up</button>
+      <button type="button" class="btn cancel" onclick="closeForm9()">Close</button>
+    </form>
+  </div>
+
+  <!-- form for scaledown -->
+<div class="form-popup" id="myForm10">
+    <form action="Javascript:scaledownRS()" class="form-container">
+      
+      <label><b>Deployment Name</b></label>
+      <input type="text"  id="rs3"   required>
+  
+      <label><b>No</b></label>
+      <input type="text"  id="rs4"  required>
+  
+      <button type="submit" class="btn" >Scale down</button>
+      <button type="button" class="btn cancel" onclick="closeForm10()">Close</button>
+    </form>
+  </div>
+
+
+  <!-- End of Rs tab -->
+
+
+  <!----Start of Namespaces---->
+<div id="hello" class="tabcontent">
+    <button class="button button1"  onclick="openForm11()" >Create NameSpace</button>
+    <button class="button button2" onclick="openForm12()">Delete NameSpace</button>
+  <button class="button button3" onclick="listAllNS()">List NameSpace</button>
+  <button class="button button4" onclick="openForm13()" >Describe NameSpace</button>
+  <button class="button button5" onclick="descAllNS()">Describe All NameSpaces</button>
+  
+  <pre>
+      <div id="d5">
+         NameSpaces
+        
+      </div>
+  </pre>
+</div>
+<!-- form for create namespace -->
+<div class="form-popup" id="myForm11">
+    <form action="Javascript:CreateNS()" class="form-container">
+      
+      <label><b>Namespace Name</b></label>
+      <input type="text"  id="ns1"   required>
+  
+  
+      <button type="submit" class="btn" >Create NameSpace</button>
+      <button type="button" class="btn cancel" onclick="closeForm11()">Close</button>
+    </form>
+  </div>
+
+  <!-- form for Delete Namespace -->
+<div class="form-popup" id="myForm12">
+    <form action="Javascript:DeleteNS()" class="form-container">
+      
+      <label><b>Namespace Name</b></label>
+      <input type="text"  id="ns2"   required>
+  
+  
+      <button type="submit" class="btn" >Delete NameSpace</button>
+      <button type="button" class="btn cancel" onclick="closeForm12()">Close</button>
+    </form>
+  </div>
+  <!-- form for Describe Namespace -->
+  <div class="form-popup" id="myForm13">
+    <form action="Javascript:DescribeNS()" class="form-container">
+      
+      <label><b>Namespace Name</b></label>
+      <input type="text"  id="ns3"   required>
+  
+  
+      <button type="submit" class="btn" >Describe NameSpace</button>
+      <button type="button" class="btn cancel" onclick="closeForm13()">Close</button>
+    </form>
+  </div>
+
+
+<script >
+    function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+
+
+// main function which runs on server 
+function lw(cmd) {
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://192.168.99.102/cgi-bin/lw.py?x="+ cmd , true); // it is k
+xhr.send(); // sending request
+
+// by onload event server tracking output from other pages:
+xhr.onload = function() {
+  // output from above url 
+  var output = xhr.responseText;
+  document.getElementById("d1").innerHTML = output;
+}
+}
+
+function lw1(cmd) {
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://192.168.99.102/cgi-bin/lw.py?x="+ cmd , true); // it is k
+xhr.send(); // sending request
+
+// by onload event server tracking output from other pages:
+xhr.onload = function() {
+  // output from above url 
+  var output = xhr.responseText;
+  document.getElementById("d2").innerHTML = output;
+}
+}
+
+function lw2(cmd) {
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://192.168.99.102/cgi-bin/lw.py?x="+ cmd , true); // it is k
+xhr.send(); // sending request
+
+// by onload event server tracking output from other pages:
+xhr.onload = function() {
+  // output from above url 
+  var output = xhr.responseText;
+  document.getElementById("d3").innerHTML = output;
+}
+}
+
+function lw3(cmd) {
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://192.168.99.102/cgi-bin/lw.py?x="+ cmd , true); // it is k
+xhr.send(); // sending request
+
+// by onload event server tracking output from other pages:
+xhr.onload = function() {
+  // output from above url 
+  var output = xhr.responseText;
+  document.getElementById("d4").innerHTML = output;
+}
+}
+
+function lw4(cmd) {
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://192.168.99.102/cgi-bin/lw.py?x="+ cmd , true); // it is k
+xhr.send(); // sending request
+
+// by onload event server tracking output from other pages:
+xhr.onload = function() {
+  // output from above url 
+  var output = xhr.responseText;
+  document.getElementById("d5").innerHTML = output;
+}
+}
+
+// for creating pod 
+function createPod(){
+    var podname = document.getElementById("in1").value;
+    var imagename = document.getElementById("in2").value;
+    var cmd = "kubectl run " + podname + " --image=" + imagename +" --kubeconfig admin.conf";
+    lw(cmd);
+}
+
+// for deleting pod
+function deletePod() {
+    var podname = document.getElementById("in3").value;
+    var cmd = "kubectl delete pod " + podname +" --kubeconfig admin.conf";
+    lw(cmd);
+}
+
+// for describing the pod 
+function descPod() {
+    var podname = document.getElementById("in4").value;
+    var cmd = "kubectl describe pod " + podname +" --kubeconfig admin.conf";
+    lw(cmd);
+}
+
+function descAllPod() {
+    var cmd = "kubectl describe pod --kubeconfig admin.conf";
+    lw(cmd);
+}
+
+function listAllPod() {
+    var cmd = "kubectl get pod --kubeconfig admin.conf";
+    lw(cmd);
+}
+
+/* deployment functions */
+// for creating deployment 
+function createDepl(){
+    var depname = document.getElementById("in5").value;
+    var imagename = document.getElementById("in6").value;
+    var cmd = "kubectl create deploy " + depname + " --image=" + imagename +" --kubeconfig admin.conf";
+    lw1(cmd);
+}
+
+// for deleting deployment 
+function deleteDepl() {
+    var depname = document.getElementById("in7").value;
+    var cmd = "kubectl delete deployment " + depname +" --kubeconfig admin.conf";
+    lw1(cmd);
+}
+
+// for describing deployment 
+function descDepl() {
+    var podname = document.getElementById("in8").value;
+    var cmd = "kubectl describe deployment " + podname +" --kubeconfig admin.conf";
+    lw1(cmd);
+}
+// for describing all deployment 
+function descAllDepl() {
+    var cmd = "kubectl describe deployment --kubeconfig admin.conf";
+    lw1(cmd);
+}
+// for list deployment 
+function listAllDepl() {
+    var cmd = "kubectl get deployment --kubeconfig admin.conf";
+    lw1(cmd);
+}
+
+
+/* Service functions */
+// for Exposing Deployment
+function createSvc(){
+    var depname = document.getElementById("s1").value;
+    var port = document.getElementById("s2").value;
+    var cmd = "kubectl expose deploy " + depname +" --port=" + port + " --type=NodePort" + " --kubeconfig admin.conf";
+    lw2(cmd);
+}
+
+// for deleting deployment 
+function deleteSvc() {
+    var svcname = document.getElementById("s3").value;
+    var cmd = "kubectl delete svc " + svcname +" --kubeconfig admin.conf";
+    lw2(cmd);
+}
+
+// for describing deployment 
+function descSvc() {
+    var svcname = document.getElementById("s4").value;
+    var cmd = "kubectl describe svc " + svcname +" --kubeconfig admin.conf";
+    lw2(cmd);
+}
+// for describing all deployment 
+function descAllSvc() {
+    var cmd = "kubectl describe svc --kubeconfig admin.conf";
+    lw2(cmd);
+}
+// for list deployment 
+function listAllSvc() {
+    var cmd = "kubectl get deployment --kubeconfig admin.conf";
+    lw2(cmd);
+}
+
+
+/* Replica functions */
+// for Scale up
+function scaleupRS(){
+    var depname = document.getElementById("rs1").value;
+    var no = document.getElementById("rs2").value;
+    var cmd = "kubectl scale deploy " + depname +" --replicas=" + no + " --kubeconfig admin.conf";
+    lw3(cmd);
+}
+
+// for Scale down
+function scaledownRS(){
+    var depname = document.getElementById("rs3").value;
+    var no = document.getElementById("rs4").value;
+    var cmd = "kubectl scale deploy " + depname +" --replicas=" + no + " --kubeconfig admin.conf";
+    lw3(cmd);
+}
+
+
+// for describing all deployment 
+function descAllRS() {
+    var cmd = "kubectl describe rs --kubeconfig admin.conf";
+    lw3(cmd);
+}
+// for list deployment 
+function listAllRS() {
+    var cmd = "kubectl get rs --kubeconfig admin.conf";
+    lw3(cmd);
+}
+
+//* NameSpace Functions *
+// for creating namespace
+function CreateNS() {
+    var nsname = document.getElementById("ns1").value;
+    var cmd = "kubectl create ns " + nsname +  " --kubeconfig admin.conf";
+    lw4(cmd);
+}
+// for deleting namespace
+function DeleteNS() {
+    var nsname = document.getElementById("ns2").value;
+    var cmd = "kubectl delete ns " + nsname + "  --kubeconfig admin.conf";
+    lw4(cmd);
+}
+
+// for describing namespace
+function DescribeNS() {
+    var nsname = document.getElementById("ns3").value;
+    var cmd = "kubectl describe ns " + nsname + "  --kubeconfig admin.conf";
+    lw4(cmd);
+}
+
+// for listing namespace
+function listAllNS() {
+    var cmd = "kubectl get ns --kubeconfig admin.conf";
+    lw4(cmd);
+}
+
+// for Describe All NameSpaces
+function descAllNS() {
+    var cmd = "kubectl describe ns --kubeconfig admin.conf";
+    lw4(cmd);
+}
+
+
+
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+
+// for 2nd
+function openForm1() {
+  document.getElementById("myForm1").style.display = "block";
+}
+
+function closeForm1() {
+  document.getElementById("myForm1").style.display = "none";
+}
+
+// for 3rd form
+function openForm2() {
+  document.getElementById("myForm2").style.display = "block";
+}
+
+function closeForm2() {
+  document.getElementById("myForm2").style.display = "none";
+}
+
+// for 4th form
+function openForm3() {
+  document.getElementById("myForm3").style.display = "block";
+}
+
+function closeForm3() {
+  document.getElementById("myForm3").style.display = "none";
+}
+// for 5th form
+function openForm4() {
+  document.getElementById("myForm4").style.display = "block";
+}
+
+function closeForm4() {
+  document.getElementById("myForm4").style.display = "none";
+}
+// for 6th form 
+function openForm5() {
+  document.getElementById("myForm5").style.display = "block";
+}
+
+function closeForm5() {
+  document.getElementById("myForm5").style.display = "none";
+}
+
+// for 7th form 
+function openForm6() {
+  document.getElementById("myForm6").style.display = "block";
+}
+
+function closeForm6() {
+  document.getElementById("myForm6").style.display = "none";
+}
+
+// for 8th form 
+function openForm7() {
+  document.getElementById("myForm7").style.display = "block";
+}
+
+function closeForm7() {
+  document.getElementById("myForm7").style.display = "none";
+}
+
+// for 9th form 
+function openForm8() {
+  document.getElementById("myForm8").style.display = "block";
+}
+
+function closeForm8() {
+  document.getElementById("myForm8").style.display = "none";
+}
+
+// for 9th form 
+function openForm9() {
+  document.getElementById("myForm9").style.display = "block";
+}
+
+function closeForm9() {
+  document.getElementById("myForm9").style.display = "none";
+}
+
+// for 10th form 
+function openForm10() {
+  document.getElementById("myForm10").style.display = "block";
+}
+
+function closeForm10() {
+  document.getElementById("myForm10").style.display = "none";
+}
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+
+// for 11th form 
+function openForm11() {
+  document.getElementById("myForm11").style.display = "block";
+}
+
+function closeForm11() {
+  document.getElementById("myForm11").style.display = "none";
+}
+
+// for 12th form 
+function openForm12() {
+  document.getElementById("myForm12").style.display = "block";
+}
+
+function closeForm12() {
+  document.getElementById("myForm12").style.display = "none";
+}
+// for 13th form 
+function openForm13() {
+  document.getElementById("myForm13").style.display = "block";
+}
+
+function closeForm13() {
+  document.getElementById("myForm13").style.display = "none";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+
+</script>
+
+</body>
+</html> 
